@@ -61,7 +61,7 @@ class App extends React.Component {
           plates: [...plates,1]
         })
 
-        console.log(this.state.eatenSushi)
+        // console.log(this.state.eatenSushi)
   
       }else{
         alert("That sushi has already been eaten.")
