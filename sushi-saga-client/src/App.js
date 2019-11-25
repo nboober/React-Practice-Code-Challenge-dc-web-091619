@@ -1,6 +1,7 @@
 import React from 'react';
 import SushiContainer from './containers/SushiContainer';
 import Table from './containers/Table';
+import AddFunds from './components/AddFunds'
 
 // Endpoint!
 const API = "http://localhost:3000/sushis"
@@ -22,6 +23,16 @@ class App extends React.Component {
       fetch(API)
       .then(response => response.json())
       .then(sushiArray => this.setState({sushi: sushiArray}))
+  }
+
+  addFunds = (event) => {
+    // console.log(event.currentTarget.previousElementSibling.value)
+
+    let funds = parseInt(event.currentTarget.previousElementSibling.value);
+
+    this.setState({
+      money: this.state.money += funds
+    })
   }
 
   eatsushi = (event, props) => {
@@ -57,7 +68,10 @@ class App extends React.Component {
   nextSushis = () => {
     if(this.state.sushiListStart >= 96){
 
-      alert("There is no more sushi available.")
+      this.setState({
+        sushiListStart: 0,
+        sushiListEnd: 4
+      })
 
     }else{
 
@@ -72,6 +86,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        
+        <AddFunds addFunds={this.addFunds}/>
+
         <SushiContainer 
           sushiList={this.state.sushi} 
           sushiListStart={this.state.sushiListStart} 
@@ -79,6 +96,7 @@ class App extends React.Component {
           nextSushis={this.nextSushis}
           eatSushi={this.eatsushi}
         />
+
         <Table plates={this.state.plates} money={this.state.money}/>
       </div>
     );

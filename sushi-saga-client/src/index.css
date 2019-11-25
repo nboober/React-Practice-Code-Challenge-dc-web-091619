@@ -17,6 +17,11 @@ body {
       ". tb tb tb .";
 }
 
+.addFunds{
+  margin: 0 auto;
+  height: 30px;
+  font-size: 100%;
+}
 
 .remaining {
   grid-area: rm;

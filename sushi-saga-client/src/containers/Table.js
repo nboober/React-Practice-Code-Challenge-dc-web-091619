@@ -4,6 +4,7 @@ const Table = (props) => {
   
   
   const renderPlates = () => {
+    
     let array = props.plates
     return array.map((x, index) => {
       return <div key={index} className="empty-plate" style={{ top: -7 * index }}/>
