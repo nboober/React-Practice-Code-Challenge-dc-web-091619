@@ -66,7 +66,7 @@ class App extends React.Component {
   }
 
   nextSushis = () => {
-    if(this.state.sushiListStart >= 96){
+    if(this.state.sushiListStart >= 42){
 
       this.setState({
         sushiListStart: 0,
