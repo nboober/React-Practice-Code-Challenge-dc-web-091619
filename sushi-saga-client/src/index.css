@@ -48,6 +48,7 @@ body {
 .sushi-details {
   margin: auto;
   text-align: center;
+  border: 1px solid black;
 }
 
 .stack {
@@ -63,8 +64,12 @@ body {
 }
 
 .sushi {
-  min-width: 150px;
+  max-width: 150px;
   margin: auto;
+}
+
+.sushiImage{
+  width: 50%;
 }
 
 .table {
