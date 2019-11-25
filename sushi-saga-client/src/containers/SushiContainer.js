@@ -11,6 +11,8 @@ const SushiContainer = (props) => {
             return (
 
             <Sushi key={sushi.id} 
+              eatenSushi={props.eatenSushi}
+              id={sushi.id}
               sushiName={sushi.name} 
               sushiPrice={sushi.price} 
               sushiImg={sushi.img_url}

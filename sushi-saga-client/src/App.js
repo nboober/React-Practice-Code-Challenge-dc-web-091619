@@ -12,6 +12,7 @@ class App extends React.Component {
     super()
     this.state = {
       sushi: [],
+      eatenSushi: [],
       plates: [],
       sushiListStart: 0,
       sushiListEnd: 4,
@@ -48,15 +49,19 @@ class App extends React.Component {
 
       if(event.currentTarget.firstChild){
 
-        event.currentTarget.firstChild.remove();
+        // event.currentTarget.firstChild.remove();
         // console.log(event.currentTarget.nextElementSibling.lastChild)
     
         let plates = this.state.plates;
+        let eaten = this.state.eatenSushi;
     
         this.setState({
+          eatenSushi: [...eaten, props.id],
           money: this.state.money -= props.sushiPrice,
           plates: [...plates,1]
         })
+
+        console.log(this.state.eatenSushi)
   
       }else{
         alert("That sushi has already been eaten.")
@@ -90,6 +95,8 @@ class App extends React.Component {
         <AddFunds addFunds={this.addFunds}/>
 
         <SushiContainer 
+
+          eatenSushi={this.state.eatenSushi}
           sushiList={this.state.sushi} 
           sushiListStart={this.state.sushiListStart} 
           sushiListEnd={this.state.sushiListEnd} 
